@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gez Robot — Huda Kasimoglu</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">huda<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="project-page">
+
+  <div class="project-hero">
+    <div class="project-hero-inner">
+      <a href="../index.html#projects" class="project-back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m0 0l7 7m-7-7l7-7"/></svg>
+        Back to projects
+      </a>
+      <h1>Gez — Autonomous Differential-Drive Robot</h1>
+      <div class="project-meta">
+        <div class="project-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>
+          Personal Project
+        </div>
+        <div class="project-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          2025 — 2026 (Ongoing)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-content">
+
+    <h2>Overview</h2>
+    <p>Gez is a differential-drive robot designed and built from scratch. The system runs ROS 2 Humble on a Raspberry Pi 4 for high-level navigation and SLAM, while an ESP32 handles real-time motor control with discrete PID, encoder-based odometry, and dual-core RTOS — connected via micro-ROS over USB serial. The project covers everything from hardware design and low-level signal processing to autonomous navigation.</p>
+
+    <div class="project-img-full">
+      <img src="../assets/images/gez-robot/assembled-robot.jpeg" alt="Gez robot fully assembled">
+    </div>
+    <div class="img-caption">The Gez robot with main components mounted: ESP32, Raspberry Pi 4, motors, and encoders.</div>
+
+    <h2>System Architecture</h2>
+    <p>The system uses a dual-computer architecture, standard in professional robots like TurtleBot and Husky. The ESP32 handles real-time motor control because Linux (on the Raspberry Pi) is not deterministic enough for precise PID loops. The Raspberry Pi handles ROS 2, sensor data (LiDAR), and future Nav2/SLAM tasks since the ESP32 lacks the necessary RAM and CPU.</p>
+
+    <div class="tech-stack-grid">
+      <div class="tech-item">
+        <div class="tech-item-name">Raspberry Pi 4 (8GB)</div>
+        <div class="tech-item-role">ROS 2 Humble, Navigation, micro-ROS Agent</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-name">ESP32 DevKit V1</div>
+        <div class="tech-item-role">PID control, micro-ROS client, RTOS Core 1</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-name">Namiki 22CL-3501PG</div>
+        <div class="tech-item-role">DC motors with 80:1 gearbox</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-name">IBT-2 (BTS7960)</div>
+        <div class="tech-item-role">Motor drivers (one per motor)</div>
+      </div>
+    </div>
+
+    <div class="project-img-full">
+      <img src="../assets/images/gez-robot/power-scheme.png" alt="System Power Schematic">
+    </div>
+    <div class="img-caption">Power connection scheme: Safe voltage distribution across motor drivers, ESP32, and Raspberry Pi.</div>
+
+    <h2>Mechanical Design & Custom 3D Parts</h2>
+    <p>The robot features a differential-drive configuration with two independently driven wheels (65mm diameter, 169mm apart) and a rear caster wheel. During assembly, it became apparent that the standard chassis didn't provide enough clearance for the encoders located at the rear of the motors.</p>
+    <p>To solve this, custom mechanical mounting brackets were designed using Onshape. The components were modeled to account for motor diameter, encoder length, and chassis clearance, then 3D printed for a perfect fit, ensuring proper weight distribution and cable routing.</p>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/gez-robot/motor-mount-3d.png" alt="3D Printed Motor Mounts">
+        <div class="img-caption">Custom 3D printed motor mounts designed to accommodate the encoders within the chassis constraints.</div>
+      </div>
+      <div>
+        <img src="../assets/images/gez-robot/kunefe-cat.jpeg" alt="Künefe helping during the mechanical assembly">
+        <div class="img-caption">My most helpful assistant, Künefe the office cat, inspecting the chassis assembly during the development process.</div>
+      </div>
+    </div>
+
+    <h2>Signal Processing & Encoders</h2>
+    <p>Accurate odometry requires precise encoder readings (approx. 80 pulses per motor revolution, scaled to 640 ticks/rev with 4x quadrature decoding). Initial tests using polling methods missed pulses at high speeds, so a hardware-interrupt approach was adopted.</p>
+    <p>However, the high-speed ESP32 pins picked up electrical noise, resulting in phantom counts. A dual-layer debounce strategy was implemented:</p>
+    <ul>
+      <li><strong>Hardware Debounce:</strong> Added 100nF capacitors to the encoder outputs to act as a low-pass filter against high-frequency noise.</li>
+      <li><strong>Software Debounce:</strong> Implemented a <code>micros()</code> timer check inside the interrupt service routine (ISR) to ignore signals arriving faster than the physical limits of the motor.</li>
+    </ul>
+
+    <h2>Low-Level Control (ESP32) & Web Interface</h2>
+    <p>The ESP32 runs the control stack using a dual-core architecture: <strong>Core 0</strong> handles micro-ROS communication, while <strong>Core 1</strong> runs the PID control loop at 10 Hz (100ms period). This isolation guarantees deterministic motor control even if network lag occurs.</p>
+
+    <p>Each PID cycle reads encoders via the hardware PCNT module, applies an alpha=0.3 low-pass filter, ramps the target velocity for smooth acceleration (1.5 rad/s max increase), and writes PWM to the IBT-2 drivers. A custom web interface was built to control and monitor the robot directly from a smartphone.</p>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/gez-robot/pid-step-response.png" alt="PID step response">
+        <div class="img-caption">PID step response showing target vs actual motor speed.</div>
+      </div>
+      <div>
+        <img src="../assets/images/gez-robot/phone-web-interface.png" alt="Phone Web Interface for Robot Control">
+        <div class="img-caption">Custom web interface used on a mobile phone to control motor speeds and read telemetry.</div>
+      </div>
+    </div>
+
+    <div class="project-img-full">
+      <img src="../assets/images/gez-robot/matlab-itae-pid.png" alt="MATLAB ITAE PID design">
+    </div>
+    <div class="img-caption">MATLAB ITAE-based PID tuning (Kp=150, Ki=600, Kd=1).</div>
+
+    <h2>Kinematics & Odometry</h2>
+    <p>The robot implements inverse kinematics to convert ROS 2 velocity commands (<code>/cmd_vel</code>: linear.x, angular.z) to individual wheel speeds. Forward kinematics uses Euler integration on the encoder readings to estimate the robot's position (x, y, theta), which is published at 20 Hz on the <code>/odom</code> topic.</p>
+
+    <p>To verify the accuracy of the wheelbase and wheel diameter parameters, physical "Square Drawing Tests" were conducted. The robot was commanded to drive in a perfect square shape based purely on odometry feedback. The minimal deviation from the starting point verified the mathematical model's accuracy.</p>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/gez-robot/square-test-1.jpeg" alt="Square Test Result 1">
+        <div class="img-caption">Square Test #1: Gap between the starting point and final stopping point.</div>
+      </div>
+      <div>
+        <img src="../assets/images/gez-robot/square-test-2.jpeg" alt="Square Test Result 2">
+        <div class="img-caption">Square Test #2: Odometry verification with a different speed profile.</div>
+      </div>
+    </div>
+
+    <h2>ROS 2 Integration & micro-ROS</h2>
+    <p>The ESP32 acts as a micro-ROS client, talking to the Raspberry Pi over USB serial at 921,600 baud. A custom state machine handles connection drops, ensuring the motors automatically halt if the ROS 2 connection is lost.</p>
+
+    <p>To avoid severe display lag when testing sensors, the system leverages ROS 2's networking capabilities (<code>ROS_DOMAIN_ID=17</code>). Topics published by the Raspberry Pi are streamed natively over the local network and visualized smoothly in RViz or Gazebo on a host laptop during teleoperation.</p>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/gez-robot/rviz-urdf-model.png" alt="RViz robot model with TF tree">
+        <div class="img-caption">Gez robot visualized in RViz with the full TF tree and joint states.</div>
+      </div>
+      <div>
+        <img src="../assets/images/gez-robot/teleop-gazebo-rviz.png" alt="Teleop control in RViz/Gazebo">
+        <div class="img-caption">Teleoperating the robot while monitoring its digital twin in RViz.</div>
+      </div>
+    </div>
+
+    <h2>Current Status & Roadmap (To-Do)</h2>
+    <p>The Gez project is currently in active development. With the base chassis, micro-ROS integration, and low-level PID control completed, the focus has shifted entirely to autonomous navigation and mapping.</p>
+
+    <div class="todo-list" style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+      <ul style="list-style: none; padding-left: 0;">
+        <li style="margin-bottom: 0.5rem;">⏳ <strong>RPLIDAR C1 Mounting:</strong> Waiting on the custom 3D printed mounting bracket to physically attach the LiDAR to the top chassis.</li>
+        <li style="margin-bottom: 0.5rem;">⏳ <strong>RPLIDAR Driver Integration:</strong> Configuring the ROS 2 drivers to publish laser scan data to the TF tree.</li>
+        <li style="margin-bottom: 0.5rem;">⏳ <strong>SLAM Toolbox:</strong> Generating the first 2D occupancy grid maps by manually tele-operating the robot around the environment.</li>
+        <li style="margin-bottom: 0.5rem;">⏳ <strong>Nav2 Autonomy:</strong> Tuning the costmaps and planners for fully autonomous waypoint navigation.</li>
+      </ul>
+    </div>
+
+    <div class="project-img-full">
+      <img src="../assets/images/gez-robot/3d-lidar-mount-pending.png" alt="3D Printed LiDAR mount pending">
+    </div>
+    <div class="img-caption">Render of the pending 3D printed mount required to secure the RPLIDAR C1.</div>
+
+    <div style="margin-top:3rem; padding-top:2rem; border-top: 1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+      <a href="fire-uav.html" class="btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m0 0l7 7m-7-7l7-7"/></svg>
+        Prev: Fire UAV
+      </a>
+      <a href="teknofest-uav.html" class="btn">
+        Next: Teknofest UAV
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-text">&copy; 2026 Huda Kasimoglu</div>
+    <div class="footer-links">
+      <a href="https://github.com/Hudakasim" target="_blank" rel="noopener" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+      <a href="https://www.linkedin.com/in/hudakasim/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="expandedImg">
+  <div id="caption"></div>
+</div>
+
+<script>
+  // Modal elementlerini al
+  var modal = document.getElementById("imageModal");
+  var modalImg = document.getElementById("expandedImg");
+  var captionText = document.getElementById("caption");
+  var closeBtn = document.getElementsByClassName("close")[0];
+
+  // Sayfadaki tüm proje fotoğraflarını seç ve tıklama özelliği ekle
+  var images = document.querySelectorAll('.project-img-full img, .project-img-grid img');
+  images.forEach(function(img) {
+    img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      // Alt etiketini caption olarak kullan
+      captionText.innerHTML = this.alt;
+    }
+  });
+
+  // X (kapat) tuşuna basılınca
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // Fotoğrafın dışına (siyah arka plana) tıklanırsa da kapansın
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>

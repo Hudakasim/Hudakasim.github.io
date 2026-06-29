@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fire Detection UAV — Huda Kasimoglu</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">huda<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#experience">Experience</a></li>
+      <li><a href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</nav>
+
+<div class="project-page">
+
+  <div class="project-hero">
+    <div class="project-hero-inner">
+      <a href="../index.html#projects" class="project-back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m0 0l7 7m-7-7l7-7"/></svg>
+        Back to projects
+      </a>
+      <h1>Autonomous Fire Detection & Extinguishing UAV</h1>
+      <div class="project-meta">
+        <div class="project-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+          Graduation Project
+        </div>
+        <div class="project-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+          Sep 2025 — Jun 2026
+        </div>
+        <div class="project-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+          Team: Huda Kasimoglu, Ayse Nur Becit
+        </div>
+        <div class="project-meta-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>
+          Istanbul Sabahattin Zaim University
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-content">
+
+    <h2>Overview</h2>
+    <p>This graduation project develops an autonomous UAV system for early fire detection and targeted intervention. The drone detects smoke using a YOLOv8 deep learning model, calculates the GPS coordinates of the fire source using vision-based geo-location, and navigates autonomously to deploy a fire-extinguishing payload. The system was validated both in simulation (ArduPilot SITL + Gazebo) and through real flight tests.</p>
+
+    <div class="project-img-full">
+      <img src="../assets/images/fire-uav/assembled-uav.png" alt="Fully assembled UAV">
+    </div>
+    <div class="img-caption">The fully assembled UAV with Pixhawk, Raspberry Pi, camera, GPS, and telemetry modules mounted.</div>
+
+    <h2>The Problem</h2>
+    <p>The most critical stage in fighting fire disasters is the early detection phase before flames spread uncontrollably. Traditional methods only yield results when flames become visible, but tracking smoke provides much earlier data for locating the fire center. This project aimed to minimize time loss and human-induced risks in fire disaster response by building a fully autonomous detection and intervention system.</p>
+
+    <h2>System Architecture</h2>
+    <p>The system connects a drone (Pixhawk flight controller + Raspberry Pi 4B) to a ground station laptop running QGroundControl and the detection algorithm. The Raspberry Pi streams camera video via UDP to the laptop where YOLOv8 inference runs, while MAVLink handles telemetry and flight commands.</p>
+
+    <div class="project-img-full">
+      <img src="../assets/images/fire-uav/system-diagram.png" alt="System operation diagram">
+    </div>
+    <div class="img-caption">System operation diagram: data flow between the drone and the ground station during flight tests.</div>
+
+    <h2>Hardware Stack</h2>
+    <div class="tech-stack-grid">
+      <div class="tech-item">
+        <div class="tech-item-name">Pixhawk 2.4.8</div>
+        <div class="tech-item-role">Flight controller (FMUV3)</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-name">Raspberry Pi 4B</div>
+        <div class="tech-item-role">Onboard computer, camera streaming</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-name">IMX708 Camera</div>
+        <div class="tech-item-role">Video feed at 45° downward angle</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-name">NEO-M8N GPS</div>
+        <div class="tech-item-role">Positioning and navigation</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-name">3DR Telemetry</div>
+        <div class="tech-item-role">Ground station data link</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-item-name">Brushless Motors + ESCs</div>
+        <div class="tech-item-role">Propulsion system</div>
+      </div>
+    </div>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/fire-uav/raspi-camera-mount.png" alt="Raspberry Pi and camera on frame">
+        <div class="img-caption">Raspberry Pi 4B and IMX708 camera mounted on the UAV frame.</div>
+      </div>
+      <div>
+        <img src="../assets/images/fire-uav/wiring-diagram.png" alt="Power distribution wiring">
+        <div class="img-caption">Power distribution and wiring diagram of the complete system.</div>
+      </div>
+    </div>
+
+    <h2>Software Stack</h2>
+    <p>The software went through significant changes during the project. The autopilot was migrated from PX4 to ArduPilot due to a critical RAM limitation on the Pixhawk 2.4.8 (PX4 v1.16 consumed 98% of RAM). ROS 2 was also removed in favor of a lighter PyMAVLink-based pipeline to reduce complexity.</p>
+    <ul>
+      <li>ArduPilot (ArduCopter) as the flight firmware</li>
+      <li>PyMAVLink for autonomous mission commands in GUIDED mode</li>
+      <li>OpenCV + YOLOv8 for real-time smoke detection</li>
+      <li>UDP H.264 video streaming from Raspberry Pi to laptop</li>
+      <li>MAVLink Router for telemetry forwarding to the detection script</li>
+    </ul>
+
+    <h2>YOLO Model Training</h2>
+    <p>Two models were trained and compared: YOLOv8n and YOLO11n, both on the D-Fire dataset (26,000+ bounding boxes) for 70 epochs using Google Colab. YOLOv8n was selected for the final system due to fewer false detections in the smoke class (precision: 0.75, mAP@0.5: 0.74).</p>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/fire-uav/yolo-training-curves.png" alt="YOLO training curves">
+        <div class="img-caption">Training curves showing accuracy and loss over epochs for both models.</div>
+      </div>
+      <div>
+        <img src="../assets/images/fire-uav/confusion-matrix.png" alt="Confusion matrix comparison">
+        <div class="img-caption">Confusion matrix comparison: YOLOv8n produced fewer false smoke detections.</div>
+      </div>
+    </div>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/fire-uav/yolov8-results.png" alt="YOLOv8n detection results">
+        <div class="img-caption">YOLOv8n detection results on D-Fire dataset samples.</div>
+      </div>
+      <div>
+        <img src="../assets/images/fire-uav/yolo11-results.png" alt="YOLO11n detection results">
+        <div class="img-caption">YOLO11n detection results on D-Fire dataset samples.</div>
+      </div>
+    </div>
+
+    <h2>Target Coordinate Calculation</h2>
+    <p>When smoke is detected, the system calculates the GPS coordinates of the fire source using a vision-based geo-location method. The camera is fixed at a 45° downward pitch angle (FOV: 114.6° horizontal, 98.6° vertical). Angular offsets from the image center are computed, then the ground distance is estimated using the drone's altitude from the barometer. Target GPS coordinates are calculated using a spherical Earth model.</p>
+    <p>The coordinate calculation is triggered when the horizontal pixel error drops below 5% of the frame width, confirming that the target is centered. The result is sent to ArduPilot as a GUIDED mode waypoint.</p>
+
+    <div class="project-img-full">
+      <img src="../assets/images/fire-uav/terminal-target-lock.png" alt="Terminal output showing target lock">
+    </div>
+    <div class="img-caption">Terminal output showing successful target lock and calculated GPS coordinates.</div>
+
+    <h2>Simulation</h2>
+    <p>The full autonomous mission was validated in ArduPilot SITL with a custom Gazebo forest world before any real flight. The simulation covered takeoff, yaw-based scanning, smoke detection, target centering, coordinate calculation, autonomous navigation, and landing — all running through the same detect.py script used in real flights.</p>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/fire-uav/gazebo-forest.png" alt="Custom Gazebo forest world">
+        <div class="img-caption">Custom-designed forest world in Gazebo simulation.</div>
+      </div>
+      <div>
+        <img src="../assets/images/fire-uav/yolo-sitl-detection.png" alt="YOLO detection during SITL">
+        <div class="img-caption">YOLO detection running during ArduPilot SITL simulation.</div>
+      </div>
+    </div>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/fire-uav/ardupilot-console.png" alt="ArduPilot console during mission">
+        <div class="img-caption">ArduPilot console showing armed state and autonomous mode transitions.</div>
+      </div>
+      <div>
+        <img src="../assets/images/fire-uav/qgc-sitl.png" alt="QGroundControl during SITL">
+        <div class="img-caption">QGroundControl interface during ArduPilot SITL.</div>
+      </div>
+    </div>
+
+    <h2>PID Tuning</h2>
+    <p>The default PID values were unsuitable for the drone due to the frame's rigidity issues and vibration during flight. PID tuning was performed using Mission Planner log analysis, comparing desired vs actual values for roll, pitch, and yaw axes. After three iterative flight tests, stable flight was achieved.</p>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/fire-uav/pid-roll.png" alt="Roll axis PID log">
+        <div class="img-caption">Roll axis: DesRoll vs Roll during PID tuning.</div>
+      </div>
+      <div>
+        <img src="../assets/images/fire-uav/pid-pitch.png" alt="Pitch axis PID log">
+        <div class="img-caption">Pitch axis: DesPitch vs Pitch during PID tuning.</div>
+      </div>
+    </div>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/fire-uav/pid-yaw.png" alt="Yaw axis PID log">
+        <div class="img-caption">Yaw axis: DesYaw vs Yaw during PID tuning.</div>
+      </div>
+      <div>
+        <img src="../assets/images/fire-uav/stabil-flight.jpeg" alt="Stable flight after PID tuning">
+        <div class="img-caption">Drone performing stable flight after PID parameters were tuned.</div>
+      </div>
+    </div>
+
+    <h2>Flight Tests</h2>
+    <p>Full mission tests were performed using smoke flares as target sources. The test procedure included GPS recalibration, 1-meter and 4-meter takeoff tests, and then the full detection mission at 4 meters.</p>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/fire-uav/smoke-flare.png" alt="Smoke flare target">
+        <div class="img-caption">Smoke flare used as the target source during full mission tests.</div>
+      </div>
+      <div>
+        <img src="../assets/images/fire-uav/takeoff-rtl-plan.jpeg" alt="4-meter takeoff RTL plan">
+        <div class="img-caption">4-meter takeoff and RTL flight plan in QGroundControl.</div>
+      </div>
+    </div>
+
+    <div class="project-img-full">
+      <img src="../assets/images/fire-uav/smoke-detection-flight.jpeg" alt="Smoke detection during flight">
+    </div>
+    <div class="img-caption">Successful smoke detection and target centering during flight test.</div>
+
+    <h2>Results</h2>
+    <p>In the best flight test, the drone successfully detected smoke and centered the target precisely. GPS drift caused slight landing offset. Two additional flights demonstrated correct smoke detection and centering. The final test ended in a crash due to unexpected deviation during a waypoint flight, breaking the landing gear.</p>
+
+    <div class="project-img-grid">
+      <div>
+        <img src="../assets/images/fire-uav/gps-validation.jpeg" alt="GPS coordinate validation">
+        <div class="img-caption">Coordinate validation: calculated GPS matched expected location with small deviation.</div>
+      </div>
+      <div>
+        <img src="../assets/images/fire-uav/gps-drift.jpeg" alt="GPS drift diagram">
+        <div class="img-caption">Diagram explaining the GPS drift that caused incorrect coordinate calculation.</div>
+      </div>
+    </div>
+
+    <h2>Challenges & Lessons</h2>
+    <ul>
+      <li>PX4 v1.16 consumed 98% RAM on Pixhawk 2.4.8, requiring migration to ArduPilot</li>
+      <li>Battery calibration was impossible under PX4 but worked immediately on ArduPilot</li>
+      <li>Running YOLO + optical flow simultaneously on Raspberry Pi caused frame drops — solved by UDP streaming to laptop</li>
+      <li>School Wi-Fi was too slow for reliable video streaming — personal hotspot fixed quality issues</li>
+      <li>PID tuning required multiple iterations due to non-rigid frame causing vibrations</li>
+      <li>GPS drift affected coordinate accuracy in real-world conditions</li>
+    </ul>
+
+    <div style="margin-top:3rem; padding-top:2rem; border-top: 1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+      <a href="../index.html#projects" class="btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m0 0l7 7m-7-7l7-7"/></svg>
+        All Projects
+      </a>
+      <a href="gez-robot.html" class="btn">
+        Next: Gez Robot
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-text">&copy; 2026 Huda Kasimoglu</div>
+    <div class="footer-links">
+      <a href="https://github.com/Hudakasim" target="_blank" rel="noopener" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+      <a href="https://www.linkedin.com/in/hudakasim/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
